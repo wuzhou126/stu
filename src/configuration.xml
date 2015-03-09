@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE configuration   
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="pojo.Persion" alias="Persion" />
+		<typeAlias type="pojo.User" alias="User" />
+	</typeAliases>
+	<!--数据源配置  -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="jdbc" />
+			<!-- dataSource 是 org.apache.ibatis.datasource.DataSourceFactory的实现类 -->
+			<dataSource type="dao.DruidDataSourceFactory">
+				<property name="url" value="jdbc:jtds:sqlserver://localhost/stu" />
+				<property name="username" value="sa" />
+				<property name="password" value="sa123456" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<!--persionMapper.xml装载进来  同等于把“dao”的实现装载进来 -->
+		<mapper resource="mapper/PersionMapper.xml" />
+		<mapper resource="mapper/UserMapper.xml" />
+	</mappers>
+</configuration> 
